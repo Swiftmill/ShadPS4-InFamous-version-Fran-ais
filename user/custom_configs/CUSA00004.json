@@ -29,7 +29,7 @@
     "rcas_enabled": true,
     "readback_linear_images_enabled": false,
     "readbacks_mode": 2,
-    "vblank_frequency": 240,
+    "vblank_frequency": 120,
     "window_height": 720,
     "window_width": 1280
   },
