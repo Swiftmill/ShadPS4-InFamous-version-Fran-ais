@@ -1,0 +1,3 @@
+Copy these five files from NVIDIA Streamline SDK 2.14.16 (bin\x64, not development) into this folder:
+sl.interposer.dll, sl.common.dll, sl.dlss.dll, sl.pcl.dll, nvngx_dlss.dll
+Download: https://github.com/NVIDIA-RTX/Streamline/releases - see README.md, section DLSS.

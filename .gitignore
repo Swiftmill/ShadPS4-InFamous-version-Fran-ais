@@ -1,0 +1,23 @@
+# Fichiers de jeu volumineux sous copyright (a extraire avec installer_inFamous.bat)
+/user/game_data/
+*.pkg
+
+# Caches, logs et donnees temporaires
+/user/cache/
+/user/log/
+/user/shader/
+/user/temp/
+/user/download/
+/user/captures/
+/user/screenshots/
+*.log
+*.dmp
+*.tmp
+
+# Sauvegardes de jeu personnelles
+/user/home/*/savedata/
+
+# Fichiers runtime de build ou de debug
+Thumbs.db
+Desktop.ini
+.DS_Store

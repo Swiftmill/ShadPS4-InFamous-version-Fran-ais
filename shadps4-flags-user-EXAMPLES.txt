@@ -1,0 +1,110 @@
+# Your own settings for the inFAMOUS Second Son build - examples (v1.1).
+#
+# How to use: make a new text file called  shadps4-flags-user.txt  next to shadPS4.exe (or rename this file to that
+# name), copy the lines you want into it and remove the # at the start of each one. One setting per line.
+# Your lines win over shadps4-flags.txt, and updates never touch shadps4-flags-user.txt.
+# Restart the game after a change. Lines starting with # are ignored.
+#
+# Most settings are also in the game: F3 opens the emulator settings (Present Mode, stick deadzones, window size,
+# volume, ...). Changes there are saved when you press Save. A frame-rate cap is there too: F3 -> Quick ->
+# Frame-rate cap (at most that many pictures per second; on a screen without G-Sync / FreeSync use your refresh
+# rate or half of it for even motion, e.g. 72 on 144 Hz - see the README, Troubleshooting).
+
+# --- Controller -----------------------------------------------------------------------------------------------
+# Stick deadzone in percent of full tilt (default 7.5). Bigger = the sticks ignore more of the small movements
+# (good for a drifting controller); 0 = off. These lines win over the F3 sliders.
+#SHADPS4_STICK_DEADZONE=10
+#SHADPS4_STICK_DEADZONE_LEFT=7.5
+#SHADPS4_STICK_DEADZONE_RIGHT=12
+
+# Controllers without a touchpad (Xbox, GameSir, ...): D-pad up = touchpad left half, View / Back = right half
+# (default on). This line turns it off; a touchpad_left / touchpad_right line in your key layout wins anyway.
+#SHADPS4_PAD_TOUCH_HALVES=0
+
+# Volume (0-200 percent, default 25) of the sounds a PS4 plays on the controller's own speaker (phone ringtone,
+# spray-can rattle, draining a power source) - they come out of your PC speakers.
+#SHADPS4_PADSPK_VOLUME=50
+
+# --- Keyboard and mouse ----------------------------------------------------------------------------------------
+# Mouse-look speed in degrees per 100 pixels of mouse movement (default 5.12). The - and = keys change it while
+# you play and keep it (user\mouse-aim.ini); this line wins over them.
+#SHADPS4_MOUSE_AIM_SENS=6
+# Mouse aiming off completely (the Y key turns it off for the session only).
+#SHADPS4_MOUSE_AIM=0
+# Always show PlayStation buttons instead of keyboard / mouse icons.
+#SHADPS4_TEX_REPLACE=0
+
+# --- Graphics ---------------------------------------------------------------------------------------------------
+# Which graphics card: -1 = automatic (a dedicated card before an integrated one), 0 = the first card Windows
+# lists, 1 = the second. The log line GPU_Model in user\log\shad_log.txt shows which one was used.
+#SHADPS4_GPU_ID=1
+# DLSS off for good (it is only active when NVIDIA's files are in the dlss folder anyway; Home turns it off for the
+# session). The Page Up panel and Insert (render size) keep working.
+#SHADPS4_DLSS=0
+# DLSS gets 8-64 sub-pixel positions instead of the game's 2 (smoother edges, especially at 100%). This line goes
+# back to the game's own 2.
+#SHADPS4_DLSS_HALTON=0
+# DLSS network: 11 = K (DLSS 4), 12 = L (DLSS 4.5, sharpest, most GPU time), 13 = M (DLSS 4.5, faster); 0 = DLSS's own
+# choice. Also in the Page Up panel (there it lasts for the session).
+#SHADPS4_DLSS_PRESET=12
+
+# Render size in percent of your screen (10-200; the same as the Page Up panel's slider, which saves its value in
+# user\render-size.ini). Below 100 DLSS (RTX cards) or the normal scaler brings it up to the window: 50 on a 1440p
+# screen = 1280x720. Above 100 the game renders larger and is scaled down (sharper, slower); the largest size is 4K's
+# pixel count (3840x2160 = 150 on a 1440p screen). The slider changes the size live up to about 3200x1800 pixels;
+# a bigger pick applies after a restart. Insert switches between the pick and 100. Without a pick the game renders
+# its own 1080 lines.
+#SHADPS4_SCREEN_PERCENT=67
+# Or an exact number of lines (wins over the percentage; width from your screen's shape): 720 = 1280x720 on 16:9.
+#SHADPS4_RENDER_HEIGHT=720
+# Render size only at start: the game starts at your pick instead of 100% (no live changes; a little less memory).
+#SHADPS4_LIVE_RES=0
+# The game's original street reflections. Since 1.1 they are dithered, which removes the stripes at low render
+# sizes (33-50%), with a noise pattern that changes every frame (the game blends frames). 1 keeps the pattern still,
+# 0 brings the old look back.
+#SHADPS4_SSR_DITHER=1
+#SHADPS4_SSR_DITHER=0
+# V-Sync with every picture held 2 screen refreshes, locked to the screen: even motion without G-Sync / FreeSync
+# (72 FPS on 144 Hz). Same as F3 -> Quick -> V-Sync -> "Fifo (half refresh)"; 3 or 4 hold it longer.
+#SHADPS4_VSYNC_DIVIDER=2
+
+# Performance mode (experimental): the game's own lower settings for weaker PCs - simpler distant objects, one sun
+# shadow layer less, smoke and fire at half resolution, fewer high-resolution textures near you. "office" goes
+# further (quarter-resolution smoke and fire, no high-resolution textures, half the pedestrians).
+#SHADPS4_PERF_MODE=low
+#SHADPS4_PERF_MODE=office
+
+# Screen shape. Default auto: the game fills your screen (wider = more at the sides, narrower = more above and
+# below). off = the console's 16:9 with black bars; crop = narrow screens cut the sides instead; or a shape like
+# 21:9 / 32:9 / 4:3. Read at start: after resizing the window, restart.
+#SHADPS4_ASPECT=off
+# Where the HUD sits on a wide picture. Default 16:9 in the middle; full = at the screen edges (the minimap is then
+# partly cut off); any shape like 21:9; or a share of the width like 85%.
+#SHADPS4_HUD=full
+# HDR screens only (1.1.1): how bright normal, non-HDR pictures are shown, in nits (default 203; e.g. 250 brighter).
+#SHADPS4_HDR_SDR_WHITE=250
+
+# Graphics cards with less than 10 GB: the build uses a smaller GPU page table there (0.45 GB less video memory).
+# Back to the full size (only if a scene shows missing objects - and please report it):
+#SHADPS4_PT_BITS=40
+
+# --- CPU and memory --------------------------------------------------------------------------------------------
+# The thread setup is automatic since 1.1 (CPUs with 20+ threads give a whole core to the command processor, smaller
+# ones do not). Force it either way:
+#SHADPS4_CP_QOS=0
+#SHADPS4_CP_QOS=3
+# PCs with less than 24 GB of RAM skip preparing ~10,000 rarely used shader variants at start (~1.7 GB less RAM).
+# Prepare them anyway (fewer first-time hitches in fights):
+#SHADPS4_PRELOAD_GUESSES=1
+
+# --- Other ------------------------------------------------------------------------------------------------------
+# No update check (each start, the build asks GitHub for the newest release and shows it on the loading screen).
+#SHADPS4_UPDATE_CHECK=0
+# Linux / Steam Deck (Wine, Proton), 1.1.1: the game's code is patched ahead of time when Wine is detected.
+# Force it on (1) or off (0):
+#SHADPS4_AOT_PATCH=1
+
+# --- If something goes wrong -------------------------------------------------------------------------------------
+# Wrong textures, crashes while loading or out of video memory on a non-NVIDIA or older card: the multithreaded
+# renderer off (slower, but closest to standard shadPS4). Please report what happened too.
+#SHADPS4_A2=0
